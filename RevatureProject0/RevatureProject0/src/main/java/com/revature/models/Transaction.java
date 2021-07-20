@@ -2,7 +2,7 @@ package com.revature.models;
 
 public class Transaction {
 
-	private String transactionID;
+	private int transactionID;
 	private int senderID;
 	private int recepientID;
 	private String senderFirstName;
@@ -11,32 +11,56 @@ public class Transaction {
 	private String recepientFirstName;
 	private String recepientLastName;
 	private String recepientUsername;
-	private String senderAccoutNum;
+	private int senderAccoutNum;
+	private int recepientAccountNum;
 	private boolean TransactionStatus;
 	
 	public Transaction() {}
 	
-	public Transaction(String transactionID, int senderID, int recepientID, String senderFirstName, String senderLastName, String senderUsername, String recepientFirstName, String recepientLastName, String recepientUsername, String senderAccoutNum, boolean TransactionStatus) {
+	public Transaction(int transactionID, int senderID, int recepientID, String senderFirstName, String senderLastName, String senderUsername, String recepientFirstName, String recepientLastName, String recepientUsername, int senderAccoutNum, int recepientAccountNum) {
 		this.transactionID = transactionID;
+		
 		this.senderID = senderID;
-		this.recepientID = recepientID;
+		this.senderAccoutNum = senderAccoutNum;
 		this.senderFirstName = senderFirstName;
 		this.senderLastName = senderLastName;
 		this.senderUsername = senderUsername;
+		
+		
+		this.recepientID = recepientID;
+		this.recepientAccountNum = recepientAccountNum;
 		this.recepientFirstName = recepientFirstName;
 		this.recepientLastName = recepientLastName;
 		this.recepientUsername = recepientUsername;
-		this.senderAccoutNum = senderAccoutNum;
+		
 		this.TransactionStatus = TransactionStatus;
 	}
 	
+	/*public Transaction(int transactionID, int senderID, int recepientID, String senderFirstName, String senderLastName, String senderUsername, String recepientFirstName, String recepientLastName, String recepientUsername, int senderAccoutNum, int recepientAccountNum) {
+		this.transactionID = transactionID;
+		
+		this.senderID = senderID;
+		this.senderAccoutNum = senderAccoutNum;
+		this.senderFirstName = senderFirstName;
+		this.senderLastName = senderLastName;
+		this.senderUsername = senderUsername;
+		
+		
+		this.recepientID = recepientID;
+		this.recepientAccountNum = recepientAccountNum;
+		this.recepientFirstName = recepientFirstName;
+		this.recepientLastName = recepientLastName;
+		this.recepientUsername = recepientUsername;
+		
+		}*/
 	
 	
 	
-	public String getTransactionID() {
+	
+	public int getTransactionID() {
 		return transactionID;
 	}
-	public void setTransactionID(String transactionID) {
+	public void setTransactionID(int transactionID) {
 		this.transactionID = transactionID;
 	}
 	public int getSenderID() {
@@ -87,11 +111,19 @@ public class Transaction {
 	public void setRecepientUsername(String recepientUsername) {
 		this.recepientUsername = recepientUsername;
 	}
-	public String getSenderAccoutNum() {
+	public int getSenderAccoutNum() {
 		return senderAccoutNum;
 	}
-	public void setSenderAccoutNum(String senderAccoutNum) {
+	public void setSenderAccoutNum(int senderAccoutNum) {
 		this.senderAccoutNum = senderAccoutNum;
+	}
+	
+	public int getRecepientAccountNum() {
+		return recepientAccountNum;
+	}
+	
+	public void setRecepientAccountNum() {
+		this.recepientAccountNum = recepientAccountNum;
 	}
 	public boolean isTransactionStatus() {
 		return TransactionStatus;
