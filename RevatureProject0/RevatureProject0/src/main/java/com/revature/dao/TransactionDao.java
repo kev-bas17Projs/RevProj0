@@ -11,15 +11,21 @@ import com.revature.models.Transaction;
 public interface TransactionDao {
 	List<Transaction> getAllTransactions();
 	
+	Transaction getTransactionID(Transaction transactionID);
+	
 	Transaction getSenderID(Transaction senderID);
-	void getSenderFirstName(Transaction senderFirstName);
-	void getSenderLastName(Transaction senderLastName);
+	//Transaction getSenderFirstName(Transaction senderFirstName);
+	//Transaction getSenderLastName(Transaction senderLastName);
 	Transaction getSenderUsername(Transaction senderUsername);
 	
-	void getRecepientID(Transaction recepientID);
-	void getRecepientFirstName(Transaction recepientFirstName);
-	void getRecepeientLastName(Transaction recepientLastName);
+	Transaction getRecepientID(Transaction recepientID);
+	//Transaction getRecepientFirstName(Transaction recepientFirstName);
+	//Transaction getRecepeientLastName(Transaction recepientLastName);
 	Transaction getRecepientUsername(Transaction recepientUsername);
+	
+	Transaction getSenderAccountNum(Transaction senderAccoutNum);
+	
+	Transaction getRecepientAccountNum(Transaction recepientAccountNum);
 	
 	
 }

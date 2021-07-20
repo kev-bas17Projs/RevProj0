@@ -11,7 +11,8 @@ import com.revature.models.BankAccount;
 
 public interface BankAccountDao {
 	
-	void createAccountNum(BankAccount accountNumber);
+	void createAccountNum(BankAccount accountNumber) throws SQLException;
 	 BankAccount getBalance();
+	 
 
 }

@@ -74,8 +74,37 @@ public class UserDaoDB implements UserDao {
 		PrepStmt.execute();
 	}
 	
+	public void updateUser(User u) {
+		try {
+			Connection conn = conUtil.getConnection();
+			String sql = "update users set first_name = ?, last_name = ?, username = ?, password = ? " + " where users.username = ?";
+			PreparedStatement PrepStmt = conn.prepareStatement(sql);
+			
+			PrepStmt.setString(1, u.getFirstName());
+			PrepStmt.setString(2, u.getLastName());
+			PrepStmt.setString(3, u.getUserName());
+			PrepStmt.setString(4, u.getPassword());
+			
+			PrepStmt.execute();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
-	
+	public void deleteUser(User u) {
+		
+		try {
+			Connection conn = conUtil.getConnection();
+			String sql = "delete from users users.username = ?";
+			PreparedStatement PrepStmt = conn.prepareStatement(sql);
+			
+			PrepStmt.setString(3, u.getUserName());
+			
+			PrepStmt.execute();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 }
 	

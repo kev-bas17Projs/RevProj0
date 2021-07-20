@@ -28,9 +28,7 @@ public class TransactionDaoDB implements TransactionDao {
 			ResultSet rs = stmt.executeQuery(sql);
 
 			while (rs.next()) {
-				// TransactionList.add(new Transaction(rs.getInt(1), rs.getInt(2), rs.getInt(3),
-				// rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-				// rs.getString(8), rs.getString(9)));
+			//TransactionList.add(new Transaction(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12)));
 			}
 
 			return TransactionList;
@@ -39,6 +37,18 @@ public class TransactionDaoDB implements TransactionDao {
 			e.printStackTrace();
 		}
 
+		return null;
+	}
+	
+	@Override
+	public Transaction getTransactionID(Transaction transactionID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public Transaction getSenderAccountNum(Transaction senderAccoutNum) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -62,16 +72,6 @@ public class TransactionDaoDB implements TransactionDao {
 			e.printStackTrace();
 		}
 		return null;
-	}
-
-	@Override
-	public void getSenderFirstName(Transaction senderFirstName) {
-
-	}
-
-	@Override
-	public void getSenderLastName(Transaction senderLastName) {
-
 	}
 
 	@Override
@@ -100,18 +100,31 @@ public class TransactionDaoDB implements TransactionDao {
 	}
 
 	@Override
-	public void getRecepientID(Transaction recepientID) {
-
+	public Transaction getRecepientAccountNum(Transaction recepientAccountNum) {
+		// TODO Auto-generated method stub
+		return null;
 	}
-
+	
 	@Override
-	public void getRecepientFirstName(Transaction recepientFirstName) {
+	public Transaction getRecepientID(Transaction recepientID) {
+		Transaction transaction = new Transaction();
 
-	}
+		try {
+			Connection conn = conUtil.getConnection();
 
-	@Override
-	public void getRecepeientLastName(Transaction recepientLastName) {
+			String sql = "select * from users where transaction.recepientID = ' " + transaction + "'";
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
 
+			while (rs.next()) {
+				transaction.setRecepientID(rs.getInt(1));
+
+			}
+			return transaction;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	@Override
@@ -138,5 +151,11 @@ public class TransactionDaoDB implements TransactionDao {
 		}
 		return null;
 	}
+
+	
+
+	
+
+
 
 }
